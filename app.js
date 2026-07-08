@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    let isLogged = false;
+    let appUserAuthenticated = false;
     const authModal = document.getElementById('authModal');
     const wizardModal = document.getElementById('wizardModal');
     const loginHeaderBtn = document.getElementById('loginHeaderBtn');
@@ -13,17 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabSignupBtn = document.getElementById('tabSignupBtn');
     const authSubmitActionButton = document.getElementById('authSubmitActionButton');
 
-    // Sticky Scroll Header
     window.addEventListener('scroll', () => {
         document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Mobile Navigation Drawer Toggle
     document.getElementById('navToggle').addEventListener('click', () => {
         document.getElementById('mainNav').classList.toggle('open');
     });
 
-    // Smooth Interactive Mouse Cursor tracking loop
+    // Smooth Custom Pointer Following Tracking Matrix Loop
     const cursorDot = document.getElementById('cursorDot');
     const cursorRing = document.getElementById('cursorRing');
     let tX = 0, tY = 0, rX = 0, rY = 0;
@@ -57,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.08 });
     revealEls.forEach(el => revealObs.observe(el));
 
-    // Stats Numeric Counters Progress
+    // Numeric Increments counters
     const counters = document.querySelectorAll('.stat-number');
     const countersObs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -78,14 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.2 });
     counters.forEach(el => countersObs.observe(el));
 
-    // Identity Modal Management UI 
+    // Overlay lightboxes controllers
     const toggleAuth = () => authModal.classList.add('active');
     const removeAuth = () => authModal.classList.remove('active');
     loginHeaderBtn.addEventListener('click', toggleAuth);
     closeAuthModal.addEventListener('click', removeAuth);
 
     heroGetStartedBtn.addEventListener('click', () => {
-        if (!isLogged) toggleAuth();
+        if (!appUserAuthenticated) toggleAuth();
         else wizardModal.classList.add('active');
     });
 
@@ -100,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     authModalForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        isLogged = true;
+        appUserAuthenticated = true;
         removeAuth();
         wizardModal.classList.add('active');
     });
@@ -109,26 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
     wizardModalForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Cache user config values securely into browser local storage cache space
         localStorage.setItem('c8_plantName', document.getElementById('wizardPlantName').value);
         localStorage.setItem('c8_plantType', document.getElementById('wizardPlantType').value);
         localStorage.setItem('c8_plantStage', document.getElementById('wizardPlantStage').value);
 
         wizardModal.classList.remove('active');
-        loginHeaderBtn.classList.add('hide');
-
-        // NEW FEATURE: Fires open your immersive mockup device view inside a clean standalone browser tab window
         window.open('dashboard.html', '_blank');
     });
 
-    // Secure Embedded Client Contact Form Submission
+    // Secure Embedded AJAX-Style Messaging Control Pipeline
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        formStatus.style.color = "var(--accent)";
-        formStatus.innerHTML = "<i class='fas fa-check-circle'></i> Message processed onto the system safely.<br>Our engineering team will review your requirements shortly from a real inbox.";
+        formStatus.style.color = "var(--accent-mint)";
+        formStatus.innerHTML = "<i class='fas fa-check-circle'></i> Message processed natively inside system logs.<br>Our cross-functional engineers will review your inquiry from a real inbox shortly.";
         contactForm.reset();
     });
 });
+        
