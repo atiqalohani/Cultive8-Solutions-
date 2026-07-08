@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaGuard - Smart Irrigation & Plant Health Ecosystem</title>
+    <title>Cultiv8 - Smart Precision Irrigation Platform</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,14 +11,17 @@
 
     <header class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo"><i class="fas fa-seedling"></i> AquaGuard</a>
+            <a href="#" class="logo-box">
+                <img src="logo.png" alt="Cultiv8 Logo" class="nav-logo-img" onerror="this.style.display='none'">
+                <span class="logo-text"><i class="fas fa-seedling"></i> Cultiv8</span>
+            </a>
             <nav class="nav-links">
                 <a href="#features">Features</a>
-                <a href="#gallery">Gallery</a>
+                <a href="#gallery">Ecosystem</a>
                 <a href="#testimonials">Reviews</a>
-                <a href="#contact">Contact</a>
+                <a href="#contact">Contact Support</a>
                 <button class="btn btn-outline" id="loginBtn">Login / Sign Up</button>
-                <button class="btn btn-primary hide" id="dashboardNavBtn">Go to Dashboard</button>
+                <button class="btn btn-primary hide" id="dashboardNavBtn">View Dashboard</button>
             </nav>
             <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
         </div>
@@ -28,60 +31,59 @@
         <div class="video-overlay"></div>
         <video autoplay muted loop playsinline class="hero-video">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-watering-plants-in-a-greenhouse-43031-large.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
         <div class="hero-content">
-            <span class="badge">Next-Gen Agricultural IoT</span>
-            <h1>Smarter Water. <br><span class="highlight">Healthier Yields.</span></h1>
-            <p>Optimize your farm or home garden with autonomous soil moisture tracking, automated water level defense, and real-time cellular health updates.</p>
+            <span class="badge">IoT AgTech System Active</span>
+            <h1>Empowering Smarter and <br><span class="highlight">Healthier Plant Growth</span></h1>
+            <p>AI-driven optimization, real-time soil analysis, and automated water management tailored directly for farms, communities, and home gardens.</p>
             <div class="hero-buttons">
                 <button class="btn btn-primary btn-large" id="heroGetStarted">Get Started Now</button>
-                <a href="#features" class="btn btn-secondary btn-large">Learn More</a>
+                <a href="#features" class="btn btn-secondary btn-large">Explore System</a>
             </div>
         </div>
     </section>
 
     <section id="features" class="section-container">
         <div class="section-header">
-            <h2>Precision Ecosystem Features</h2>
-            <p>Combining field-tested sensors with automated logic to protect your green assets.</p>
+            <h2>AI-Powered Precision Monitoring</h2>
+            <p>Proactive care metrics optimized to ensure zero waste and maximum plant health index protection.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="icon-box"><i class="fas fa-tint"></i></div>
-                <h3>Automated Pump Control</h3>
-                <p>ESP32-driven relays instantly activate water pumps when soil moisture dips beneath critical structural levels, preventing under or over-watering.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box"><i class="fas fa-water"></i></div>
-                <h3>Water Tank Guarding</h3>
-                <p>Tracks exact reservoir capacity depth levels. System stops dry-pumping instantly to save machine motors from permanent wear damage.</p>
+                <div class="icon-box"><i class="fas fa-brain"></i></div>
+                <h3>AI Insights</h3>
+                <p>Smarter automated irrigation decisions based on precise localized moisture matrix algorithms.</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box"><i class="fas fa-chart-line"></i></div>
-                <h3>Live Insights Dashboard</h3>
-                <p>Observe precise data streams through our secure user infrastructure panel tracking moisture index readings live from any remote device.</p>
+                <h3>Real-Time Tracking</h3>
+                <p>Monitor actual ground conditions, tank reservoir volumetric depletion, and system statuses continuously.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-bell"></i></div>
+                <h3>Proactive Alerts</h3>
+                <p>Stay ahead of heat waves and drought stress with instant remote terminal notification feedback logs.</p>
             </div>
         </div>
     </section>
 
     <section id="gallery" class="gallery-section">
         <div class="section-header">
-            <h2>AquaGuard in Action</h2>
-            <p>Bridging natural soil biological configurations with reliable automated tech architectures.</p>
+            <h2>Cultiv8 Field Deployments</h2>
+            <p>Real hardware deployed locally from Gujranwala, Punjab to smart urban vertical grow rooms.</p>
         </div>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=600&q=80" alt="Farmer checking agricultural crops">
-                <div class="gallery-overlay"><h4>Smart Crop Monitoring</h4></div>
+                <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=700&q=80" alt="Farmer checking crop health">
+                <div class="gallery-overlay"><h4>Agricultural Crop Management</h4></div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80" alt="Greenhouse plant cultivation">
-                <div class="gallery-overlay"><h4>Precision Greenhouse Controls</h4></div>
+                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=80" alt="Greenhouse Plant System">
+                <div class="gallery-overlay"><h4>Community Rooftop Garden Hubs</h4></div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600&q=80" alt="Moisture sensors close up">
-                <div class="gallery-overlay"><h4>IoT Soil Deployments</h4></div>
+                <img src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=700&q=80" alt="ESP32 Moisture probes">
+                <div class="gallery-overlay"><h4>Automated Soil Core Probes</h4></div>
             </div>
         </div>
     </section>
@@ -90,35 +92,35 @@
         <div class="dashboard-wrapper">
             <div class="dashboard-header">
                 <div>
-                    <h2>Welcome to your AquaGuard Hub</h2>
-                    <p id="userGreeting">Loading your environmental ecosystem...</p>
+                    <h2>Operational Dashboard Panel</h2>
+                    <p id="userGreeting">Analyzing localized field data streams...</p>
                 </div>
-                <button class="btn btn-outline" id="addDeviceBtn"><i class="fas fa-plus"></i> Pair New Device</button>
+                <button class="btn btn-outline" id="addDeviceBtn"><i class="fas fa-plus-circle"></i> Sync Core Node</button>
             </div>
 
-            <div class="db-grid" id="dashboardActiveView">
+            <div class="db-grid">
                 <div class="db-card plant-profile-card">
                     <div class="plant-meta">
-                        <img src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=300&q=80" alt="Your plant" id="dbPlantImg">
+                        <img src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=300&q=80" alt="Target Plant Preview" id="dbPlantImg">
                         <div>
                             <h3 id="dbPlantName">Sweet Lily</h3>
-                            <span class="tag" id="dbPlantType">Flower / Lily</span>
-                            <p class="meta-text">Stage: <strong id="dbPlantStage">Vegetative</strong></p>
+                            <span class="tag" id="dbPlantType">Flower Species</span>
+                            <p class="meta-text" style="margin-top: 8px;">Biological Phase: <strong id="dbPlantStage">Vegetative</strong></p>
                         </div>
                     </div>
                 </div>
                 <div class="db-card metrics-card">
-                    <h4>Current Soil Moisture</h4>
+                    <h4>Soil Moisture Probe</h4>
                     <div class="gauge-container">
-                        <div class="gauge-value" id="moistureValue">68%</div>
-                        <p class="status-good"><i class="fas fa-check-circle"></i> Moisture Level Optimal</p>
+                        <div class="gauge-value" id="moistureValue">58%</div>
+                        <p class="status-good"><i class="fas fa-check-circle"></i> Level Optimal</p>
                     </div>
                 </div>
                 <div class="db-card metrics-card">
-                    <h4>Tank Reservoir Level</h4>
+                    <h4>Air Temp & Humidity</h4>
                     <div class="gauge-container">
-                        <div class="gauge-value" id="tankValue">84%</div>
-                        <p class="status-good"><i class="fas fa-check-circle"></i> Secure Volumetric Levels</p>
+                        <div class="gauge-value" style="font-size: 2.2rem; margin: 10px 0;">24.1°C / 65%</div>
+                        <p class="status-good">AI Predicted Growth Score: 8.7/10</p>
                     </div>
                 </div>
             </div>
@@ -127,24 +129,24 @@
 
     <section id="testimonials" class="testimonials-section">
         <div class="section-header">
-            <h2>Trusted by Field Innovators</h2>
-            <p>See how local operators optimize water application metrics everyday.</p>
+            <h2>Trusted by Field Operators</h2>
+            <p>See why growers are switching to automated tracking networks.</p>
         </div>
         <div class="testimonials-container">
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"AquaGuard completely saved our greenhouse output. The automated water tank monitoring prevents our pump motors from ever overheating."</p>
+                <p>"The real-time soil moisture percentage readings match our scientific instrumentation perfectly. Incredible product."</p>
                 <div class="reviewer-info">
-                    <strong>Arsalan Khan</strong>
-                    <span>Commercial Farm Operator</span>
+                    <strong>Atiq Al-Olohani</strong>
+                    <span>Systems Architect</span>
                 </div>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"The real-time moisture reading dashboard makes handling delicate flower fields foolproof. Unbelievable accuracy."</p>
+                <p>"Cultiv8 completely minimized our manual watering cycles. The pump shutoff automation works like magic."</p>
                 <div class="reviewer-info">
-                    <strong>Zainab Patel</strong>
-                    <span>Botanical Landscape Designer</span>
+                    <strong>Fatima Raza</strong>
+                    <span>Precision Agriculturist</span>
                 </div>
             </div>
         </div>
@@ -153,34 +155,37 @@
     <section id="contact" class="contact-section section-container">
         <div class="contact-grid">
             <div class="contact-info">
-                <h2>Have Questions? Let's Talk Logistics.</h2>
-                <p>Send an automated routing email directly to our support desk or activate your direct desktop mail client application.</p>
+                <h2>Connect With Cultiv8 Engineers</h2>
+                <p>Submit inquiries directly to our operations support team desk. Clicking the link below opens your native email app instantly.</p>
                 <div class="contact-methods">
-                    <a href="mailto:info.aquaguard.pk@gmail.com" class="contact-link">
+                    <a href="mailto:info.aquaguard.pk@gmail.com" class="contact-link" id="directMailLink">
                         <i class="fas fa-envelope-open-text"></i> info.aquaguard.pk@gmail.com
                     </a>
-                    <div class="social-channels">
-                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <div class="banner-holder">
+                        <img src="social-banner.png" alt="Cultiv8 Social Overview" class="embedded-social-banner" onerror="this.style.display='none'">
+                    </div>
+                    <div class="social-icons-footer" style="margin-top: 25px; font-size: 1.5rem; display: flex; gap: 20px;">
+                        <a href="#" style="color: var(--primary-mid);"><i class="fab fa-github"></i></a>
+                        <a href="#" style="color: var(--primary-mid);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--primary-mid);"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="contact-form-container">
                 <form id="contactForm">
                     <div class="form-group">
-                        <label for="contactName">Full Name</label>
+                        <label for="contactName">Operator Identity Name</label>
                         <input type="text" id="contactName" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="contactEmail">Email Address</label>
-                        <input type="email" id="contactEmail" placeholder="yourname@domain.com" required>
+                        <label for="contactEmail">Registered Email</label>
+                        <input type="email" id="contactEmail" placeholder="name@domain.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="contactMessage">Inquiry Details</label>
-                        <textarea id="contactMessage" rows="5" placeholder="Write your requirements here..." required></textarea>
+                        <label for="contactMessage">Technical Requirements Message</label>
+                        <textarea id="contactMessage" rows="5" placeholder="Specify system issues or deployment questions..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">Send Secure Message</button>
+                    <button type="submit" class="btn btn-primary btn-full">Dispatch Inquiry Packet</button>
                 </form>
                 <div id="formFeedback" class="form-feedback hidden"></div>
             </div>
@@ -188,7 +193,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 AquaGuard Technologies. Precision Botanical Automation. All rights reserved.</p>
+        <p>&copy; 2026 Cultiv8 Systems Engine. Built and Powered via Sustainable IoT Architectures.</p>
     </footer>
 
     <div class="modal" id="authModal">
@@ -200,61 +205,54 @@
             </div>
             <form id="authForm" class="modal-form">
                 <div class="form-group">
-                    <label for="authEmail">Email address</label>
-                    <input type="email" id="authEmail" required placeholder="name@example.com">
+                    <label>Email ID String</label>
+                    <input type="email" id="authEmail" required placeholder="grower@domain.com">
                 </div>
                 <div class="form-group">
-                    <label for="authPassword">Password</label>
+                    <label>Secure Passphrase</label>
                     <input type="password" id="authPassword" required placeholder="••••••••">
                 </div>
-                <button type="submit" class="btn btn-primary btn-full" id="authSubmitBtn">Access Ecosystem</button>
+                <button type="submit" class="btn btn-primary btn-full" id="authSubmitBtn">Access Dashboard Control</button>
             </form>
         </div>
     </div>
 
     <div class="modal" id="wizardModal">
         <div class="modal-content wizard-content">
-            <h2>Configure Your AquaGuard Smart Device</h2>
-            <p>Let's map your operational physical hardware environment parameters to our data metrics.</p>
-            
+            <h2>Ecosystem Pairing Wizard</h2>
+            <p>Please declare the biological parameters of your field instance node below to map dashboard outputs correctly.</p>
             <form id="wizardForm" class="modal-form">
                 <div class="form-group">
-                    <label for="plantName">What is the local custom name of this plant instance?</label>
-                    <input type="text" id="plantName" placeholder="e.g., East Wing Lily" required>
+                    <label for="plantName">Plant Unique Reference Name:</label>
+                    <input type="text" id="plantName" placeholder="e.g., Row 4 Tomatoes / Tiger Lily" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="plantType">Select your Plant Category classification:</label>
+                    <label for="plantType">Plant Cultivar Classification Category:</label>
                     <select id="plantType" required>
-                        <option value="">-- Choose Category --</option>
-                        <option value="Flower/Lily">Flower / Lily Variety</option>
-                        <option value="Vegetable Crop">Vegetable Patch Crop</option>
-                        <option value="Fruit Plant">Fruit Yield Trees</option>
-                        <option value="Foliage/Houseplant">Foliage / Decorative Interior Houseplant</option>
+                        <option value="">-- Choose Option --</option>
+                        <option value="Flower / Lily">Flower / Lily Variety</option>
+                        <option value="Vegetable Variety">Vegetable Crop Patch</option>
+                        <option value="Fruit Cultivar">Fruit Yield Trellising</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="plantStage">Current Physiological Biological Stage:</label>
                     <select id="plantStage" required>
-                        <option value="">-- Choose Biological Stage --</option>
-                        <option value="Seedling / Germination">Seedling / Germination Phase</option>
-                        <option value="Vegetative Growth">Active Vegetative Leafing</option>
-                        <option value="Flowering / Budding">Flowering / Budding Horizon</option>
-                        <option value="Harvest Ready ripening">Harvest-Ready Ripening</option>
+                        <option value="">-- Choose Phase --</option>
+                        <option value="Seedling Phase">Seedling / Germination</option>
+                        <option value="Vegetative Grow Growth">Active Vegetative Foliage</option>
+                        <option value="Flowering Phase">Flowering or Budding Horizon</option>
                     </select>
                 </div>
-
                 <div class="hardware-check-box">
-                    <i class="fas fa-microchip"></i>
-                    <p>Have you positioned your physical ESP32 terminal probe carefully into the target damp soil channel?</p>
-                    <label class="toggle-container">
+                    <i class="fas fa-microchip" style="font-size: 2rem; color: var(--primary-mid); margin-bottom: 10px;"></i>
+                    <p>Have you plugged your physical tracking device probe firmly down into the crop soil core block?</p>
+                    <label class="toggle-container" style="display: block; margin-top: 10px; cursor: pointer;">
                         <input type="checkbox" id="hwConfirm" required>
-                        <span class="toggle-label">Yes, Hardware Probe is Planted and Active</span>
+                        <span class="toggle-label" style="font-weight: 600; margin-left: 5px;">Yes, Hardware Probe is Planted and Active</span>
                     </label>
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-full">Generate Live Operational Dashboard</button>
+                <button type="submit" class="btn btn-primary btn-full">Generate Dynamic System Dashboard</button>
             </form>
         </div>
     </div>
