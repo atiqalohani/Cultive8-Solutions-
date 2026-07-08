@@ -1,127 +1,206 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let authStateVerified = false;
-    let authTabMode = 'login';
-    let userSessionCache = { email: "grower@cultiv8.pk" };
 
-    // DOM Selections
+    // --- Core Architecture Reactive Application State ---
+    let appUserAuthenticated = false;
+    let wizardFormConfigured = false;
+    let authModeSelection = 'login'; 
+    let globalActiveSession = { email: "grower@cultiv8.pk" };
+
+    // --- DOM Selection Mapping Node Registry ---
+    const siteHeader = document.getElementById('siteHeader');
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    
     const authModal = document.getElementById('authModal');
     const wizardModal = document.getElementById('wizardModal');
-    const loginBtn = document.getElementById('loginBtn');
-    const dashboardNavBtn = document.getElementById('dashboardNavBtn');
-    const closeAuth = document.getElementById('closeAuth');
-    const tabLogin = document.getElementById('tabLogin');
-    const tabSignup = document.getElementById('tabSignup');
-    const authForm = document.getElementById('authForm');
-    const authSubmitBtn = document.getElementById('authSubmitBtn');
-    const heroGetStarted = document.getElementById('heroGetStarted');
+    const loginHeaderBtn = document.getElementById('loginHeaderBtn');
+    const navDashboardLink = document.getElementById('navDashboardLink');
+    const closeAuthModal = document.getElementById('closeAuthModal');
+    const heroGetStartedBtn = document.getElementById('heroGetStartedBtn');
     
-    const wizardForm = document.getElementById('wizardForm');
-    const dashboardSection = document.getElementById('dashboardSection');
-    const userGreeting = document.getElementById('userGreeting');
-    const dbPlantName = document.getElementById('dbPlantName');
-    const dbPlantType = document.getElementById('dbPlantType');
-    const dbPlantStage = document.getElementById('dbPlantStage');
-    const addDeviceBtn = document.getElementById('addDeviceBtn');
-    const contactForm = document.getElementById('contactForm');
-    const formFeedback = document.getElementById('formFeedback');
+    const tabLoginBtn = document.getElementById('tabLoginBtn');
+    const tabSignupBtn = document.getElementById('tabSignupBtn');
+    const authModalForm = document.getElementById('authModalForm');
+    const authSubmitActionButton = document.getElementById('authSubmitActionButton');
+    
+    const wizardModalForm = document.getElementById('wizardModalForm');
+    const dashboardSection = document.getElementById('dashboard');
+    const dashboardHeadline = document.getElementById('dashboardHeadline');
+    const panelPlantName = document.getElementById('panelPlantName');
+    const panelPlantType = document.getElementById('panelPlantType');
+    const panelPlantStage = document.getElementById('panelPlantStage');
+    const reconfigureWizardBtn = document.getElementById('reconfigureWizardBtn');
+    
+    const healthNumber = document.getElementById('healthNumber');
+    const moistureVal = document.getElementById('moistureVal');
+    const tempVal = document.getElementById('tempVal');
+    const gaugeFill = document.getElementById('gaugeFill');
+    const CIRCUMFERENCE_OFFSET_VAL = 540; 
 
-    // --- Modal View Handlers ---
-    const showAuth = () => authModal.classList.add('active');
-    const hideAuth = () => authModal.classList.remove('active');
+    // Sync Year token
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    loginBtn.addEventListener('click', showAuth);
-    closeAuth.addEventListener('click', hideAuth);
-
-    heroGetStarted.addEventListener('click', () => {
-        if (!authStateVerified) { showAuth(); } 
-        else { wizardModal.classList.add('active'); }
+    // Sticky Scroll Header Trigger
+    window.addEventListener('scroll', () => {
+        siteHeader.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    tabLogin.addEventListener('click', () => {
-        authTabMode = 'login';
-        tabLogin.classList.add('active');
-        tabSignup.classList.remove('active');
-        authSubmitBtn.innerText = 'Access Dashboard Control';
+    // Mobile Hamburger Nav
+    navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
+    mainNav.querySelectorAll('a, button').forEach(el => el.addEventListener('click', () => mainNav.classList.remove('open')));
+
+    // Smooth Cursor Tracking Matrix
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let tX = 0, tY = 0, rX = 0, rY = 0;
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', (e) => {
+            tX = e.clientX; tY = e.clientY;
+            cursorDot.style.left = tX + 'px'; cursorDot.style.top = tY + 'px';
+        });
+        function renderCursor() {
+            rX += (tX - rX) * 0.15; rY += (tY - rY) * 0.15;
+            cursorRing.style.left = rX + 'px'; cursorRing.style.top = rY + 'px';
+            requestAnimationFrame(renderCursor);
+        }
+        renderCursor();
+        document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+            el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
+        });
+    }
+
+    // Viewport Intersection Obserer for Reveals
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => revealObs.observe(el));
+
+    // Stats Counters Increments
+    const numCounters = document.querySelectorAll('.stat-number');
+    const countersObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const node = entry.target;
+                const limit = parseInt(node.dataset.target, 10);
+                let currentVal = 0;
+                const tick = () => {
+                    currentVal += Math.max(1, Math.round(limit / 30));
+                    if (currentVal >= limit) { node.textContent = limit; return; }
+                    node.textContent = currentVal;
+                    requestAnimationFrame(tick);
+                };
+                tick();
+                countersObs.unobserve(node);
+            }
+        });
+    }, { threshold: 0.3 });
+    numCounters.forEach(el => countersObs.observe(el));
+
+    // Modal Control Windows
+    const openAuth = () => authModal.classList.add('active');
+    const closeAuth = () => authModal.classList.remove('active');
+    loginHeaderBtn.addEventListener('click', openAuth);
+    closeAuthModal.addEventListener('click', closeAuth);
+
+    heroGetStartedBtn.addEventListener('click', () => {
+        if (!appUserAuthenticated) openAuth();
+        else if (!wizardFormConfigured) wizardModal.classList.add('active');
+        else {
+            dashboardSection.classList.remove('hidden');
+            dashboardSection.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 
-    tabSignup.addEventListener('click', () => {
-        authTabMode = 'signup';
-        tabSignup.classList.add('active');
-        tabLogin.classList.remove('active');
-        authSubmitBtn.innerText = 'Create Free Operator Profile';
+    tabLoginBtn.addEventListener('click', () => {
+        authModeSelection = 'login'; tabLoginBtn.classList.add('active'); tabSignupBtn.classList.remove('active');
+        authSubmitActionButton.innerText = 'Access Digital System';
+    });
+    tabSignupBtn.addEventListener('click', () => {
+        authModeSelection = 'signup'; tabSignupBtn.classList.add('active'); tabLoginBtn.classList.remove('active');
+        authSubmitActionButton.innerText = 'Register Core Profile';
     });
 
-    // --- Browser Auth Simulation ---
-    authForm.addEventListener('submit', (e) => {
+    authModalForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const targetedEmail = document.getElementById('authEmail').value;
-        
-        authStateVerified = true;
-        userSessionCache = { email: targetedEmail };
-
-        loginBtn.classList.add('hide');
-        dashboardNavBtn.classList.remove('hide');
-        hideAuth();
-        
-        // Advance smoothly to pairing question card wizard
+        appUserAuthenticated = true;
+        globalActiveSession.email = document.getElementById('authEmailInput').value;
+        loginHeaderBtn.classList.add('hide');
+        navDashboardLink.classList.remove('hide');
+        closeAuth();
         wizardModal.classList.add('active');
     });
 
-    // --- Dynamic Wizard Form Onboarding ---
-    wizardForm.addEventListener('submit', (e) => {
+    // Wizard Process Submission
+    wizardModalForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        panelPlantName.innerText = document.getElementById('wizardPlantName').value;
+        panelPlantType.innerText = document.getElementById('wizardPlantType').value;
+        panelPlantStage.innerText = document.getElementById('wizardPlantStage').value;
+        dashboardHeadline.innerText = `Ecosystem Mapped: ${document.getElementById('wizardPlantName').value}`;
 
-        const inputName = document.getElementById('plantName').value;
-        const inputType = document.getElementById('plantType').value;
-        const inputStage = document.getElementById('plantStage').value;
-
-        // Change values in active dashboard UI panel live
-        dbPlantName.innerText = inputName;
-        dbPlantType.innerText = inputType;
-        dbPlantStage.innerText = inputStage;
-
-        userGreeting.innerText = `Connected Node Account: [ ${userSessionCache.email} ]`;
-
+        wizardFormConfigured = true;
         wizardModal.classList.remove('active');
         dashboardSection.classList.remove('hidden');
+        initDashboardLoop();
         dashboardSection.scrollIntoView({ behavior: 'smooth' });
     });
 
-    addDeviceBtn.addEventListener('click', () => wizardModal.classList.add('active'));
-    dashboardNavBtn.addEventListener('click', () => {
+    reconfigureWizardBtn.addEventListener('click', () => wizardModal.classList.add('active'));
+    navDashboardLink.addEventListener('click', () => {
         dashboardSection.classList.remove('hidden');
         dashboardSection.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // --- Direct Email Mailto Integration ---
+    // Live Dashboard Automation Engine values simulation matching your mockup app parameters
+    function setGaugeProgress(scoreVal) {
+        const offset = CIRCUMFERENCE_OFFSET_VAL - (scoreVal / 10) * CIRCUMFERENCE_OFFSET_VAL;
+        gaugeFill.style.strokeDashoffset = offset;
+        healthNumber.textContent = scoreVal.toFixed(1);
+    }
+
+    let loopKey = null;
+    function initDashboardLoop() {
+        if (loopKey) clearInterval(loopKey);
+        setGaugeProgress(8.7);
+        moistureVal.textContent = "58%";
+        tempVal.textContent = "24.1°C";
+
+        loopKey = setInterval(() => {
+            const score = 8.0 + (Math.random() * 1.9);
+            const moist = 52 + Math.round(Math.random() * 12);
+            const temp = 23 + (Math.random() * 2);
+
+            setGaugeProgress(score);
+            moistureVal.textContent = moist + '%';
+            tempVal.textContent = temp.toFixed(1) + '°C';
+        }, 3500);
+    }
+
+    // Secure Support Form Application Launcher redirection
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        const opName = document.getElementById('name').value;
+        const opMsg = document.getElementById('message').value;
 
-        const senderName = document.getElementById('contactName').value;
-        const msgBody = document.getElementById('contactMessage').value;
+        formStatus.style.color = "var(--accent)";
+        formStatus.textContent = "Processing packet... Launching native device email system.";
 
-        formFeedback.className = "form-feedback success";
-        formFeedback.innerText = "Configured... Opening your system mailing app client directly now.";
-        formFeedback.classList.remove('hidden');
-
-        // Fires open target mail client app link structure immediately
         setTimeout(() => {
-            window.location.href = `mailto:info.aquaguard.pk@gmail.com?subject=Cultiv8 Assistance Inquiry from ${encodeURIComponent(senderName)}&body=${encodeURIComponent(msgBody)}`;
-        }, 1000);
-    });
-
-    // Mobile Navigation Toggle Simple logic rules layout
-    const mobileMenu = document.getElementById('mobileMenu');
-    const navLinks = document.querySelector('.nav-links');
-    mobileMenu.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '70px';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = '#ffffff';
-        navLinks.style.padding = '20px';
+            window.location.href = `mailto:info.aquaguard.pk@gmail.com?subject=Cultiv8 Field Support Request from ${encodeURIComponent(opName)}&body=${encodeURIComponent(opMsg)}`;
+            contactForm.reset();
+            formStatus.textContent = "Inquiry prepared for delivery to info.aquaguard.pk@gmail.com";
+        }, 1200);
     });
 });
-                                    
+                
