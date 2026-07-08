@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultiv8 Live Hub v1.0 — System Terminal Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background: #EBF1EB; padding: 20px 10px;">
+
+    <!-- Smartphone UI Panel Shell -->
+    <div class="phone-mockup-wrapper">
+        
+        <!-- Status Bar -->
+        <div class="phone-status-bar">
+            <span>5:33 <i class="fab fa-whatsapp"></i></span>
+            <span class="right-icons"><i class="fas fa-signal"></i> <i class="fas fa-wifi"></i> <i class="fas fa-battery-quarter" style="color: #e63946;"></i></span>
+        </div>
+
+        <!-- App Header area -->
+        <div class="app-interface-header">
+            <h2 id="appNodeTitle">Cultiv8 v1.0 Dashboard</h2>
+        </div>
+
+        <!-- Application Node Body Area Container -->
+        <div class="app-scroll-body">
+            
+            <!-- Real Time Status Grid -->
+            <div class="status-alert-box">
+                <div class="status-row-item">
+                    <span class="pulse-dot green"></span>
+                    <p><strong>System:</strong> <span class="dim-text">Online (ESP32 IoT Core)</span></p>
+                </div>
+                <div class="status-row-item" style="margin-top: 10px;">
+                    <span class="pulse-dot green"></span>
+                    <p><strong>AI Status:</strong> <span class="dim-text">Good (AI Mode Active)</span></p>
+                </div>
+            </div>
+
+            <!-- Two-Column Core Metric Blocks -->
+            <div class="metric-visuals-row">
+                <div class="app-card-item text-center">
+                    <h5>Soil Moisture:</h5>
+                    <div class="circular-progress-box">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" class="base-c"></circle>
+                            <circle cx="50" cy="50" r="40" class="fill-c" id="moistureCircle"></circle>
+                        </svg>
+                        <span class="inner-value-txt" id="moisturePercentTxt">58%</span>
+                    </div>
+                </div>
+
+                <div class="app-card-item">
+                    <h5>Temp & Humidity Trends</h5>
+                    <!-- Inline Mock Vector SVG Line Chart representation matching image layout graph -->
+                    <svg class="trend-graph-svg" viewBox="0 0 120 60">
+                        <path d="M0,45 Q15,40 30,25 T60,15 T90,30 T120,20" fill="none" stroke="#4F772D" stroke-width="2.5"></path>
+                        <circle cx="30" cy="25" r="3" fill="#31572C"></circle>
+                        <circle cx="60" cy="15" r="3" fill="#31572C"></circle>
+                    </svg>
+                    <div class="graph-axis-labels">
+                        <span>0hr</span><span>8hr</span><span>12hr</span><span>16hr</span><span>24hr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary Parameter Value Outputs Row -->
+            <div class="numerical-readings-strip">
+                <div class="strip-item">
+                    <span class="strip-label">Air Temp:</span>
+                    <span class="strip-val" id="airTempNode">24.1°C</span>
+                </div>
+                <div class="strip-item">
+                    <span class="strip-label">Air Humidity:</span>
+                    <span class="strip-val">65%</span>
+                </div>
+                <div class="strip-item text-center">
+                    <span class="strip-label">AI Predicted Growth Score:</span>
+                    <span class="strip-val highlighting-text" id="growthScoreNode">8.7/10</span>
+                </div>
+            </div>
+
+            <!-- Pump Controller Notification Bar element layout -->
+            <div class="pump-status-banner">
+                <div class="pump-icon-label-side">
+                    <i class="fas fa-tint sub-water-pulse"></i>
+                    <div>
+                        <h6>Pump Status: Active</h6>
+                        <span class="tiny-subtext">(Irrigation Running)</span>
+                    </div>
+                </div>
+                <button class="app-action-btn-pill">Irrigate Now</button>
+            </div>
+
+            <!-- AI Generative Diagnostic Prompt Field Box -->
+            <div class="ai-notes-text-card">
+                <h6><i class="fas fa-brain"></i> AI Note:</h6>
+                <p><span id="targetUserPlantNickname">Tomato</span> plant growth index parameters look optimal. Current system line water logging pressure thresholds and automated diagnostic loops are fully correct.</p>
+            </div>
+        </div>
+
+        <!-- Phone Soft Navigation Bar Footer -->
+        <div class="app-bottom-nav-bar">
+            <div class="nav-app-item active"><i class="fas fa-th-large"></i><span>Dashboard</span></div>
+            <div class="nav-app-item"><i class="fas fa-history"></i><span>History</span></div>
+            <div class="nav-app-item"><i class="fas fa-leaf"></i><span>Plants</span></div>
+            <div class="nav-app-item"><i class="fas fa-cog"></i><span>Settings</span></div>
+        </div>
+
+        <!-- Logo watermark footer signature matching layout screen bottom -->
+        <div class="app-brand-footer-watermark">
+            <p class="brand-footer-txt">Cultiv8</p>
+            <span class="brand-sub-txt">SOLUTIONS</span>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
