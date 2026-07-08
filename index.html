@@ -16,7 +16,7 @@
     <div class="cursor-ring" id="cursorRing"></div>
     <div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- ===== NAVBAR ===== -->
+    <!-- ===== HEADER NAVBAR ===== -->
     <header class="site-header" id="siteHeader">
         <div class="container header-inner">
             <a href="#top" class="brand">
@@ -29,6 +29,7 @@
                 <a href="#mission">Our Mission</a>
                 <a href="#real-world-uses">Real-World Uses</a>
                 <a href="#gallery">Gallery</a>
+                <a href="#video">Watch Demo</a>
                 <a href="#team">Meet Team</a>
                 <a href="#contact">Contact</a>
                 <button class="nav-auth-btn" id="loginHeaderBtn">Login / Sign Up</button>
@@ -41,23 +42,26 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="hero" id="top">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-watering-plants-in-a-greenhouse-43031-large.mp4" type="video/mp4">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/dashboard-graphic.jpg">
+            <source src="https://assets.mixkit.co/videos/9762/9762-360.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
+        <div class="hero-leaves" aria-hidden="true">
+            <span>🌿</span><span>🌱</span><span>🍃</span><span>🌿</span><span>🌱</span>
+        </div>
         <div class="container hero-content">
-            <p class="eyebrow reveal">AI-powered botanical precision</p>
+            <p class="eyebrow reveal" style="color: var(--bg-sand);">AI-powered plant care</p>
             <h1 class="reveal">Grow smarter.<br>Grow <em>healthier</em>.</h1>
-            <p class="hero-sub reveal">Cultiv8 Solutions pairs low-power hardware probes with live analytical AI. Monitor environmental parameters across rooms or open fields instantly.</p>
+            <p class="hero-sub reveal">Cultiv8 Solutions pairs live sensors with AI insight so every plant — from a single greenhouse to an entire field — gets exactly the care it needs, the moment it needs it.</p>
             <div class="hero-actions reveal">
-                <button class="btn btn-primary" id="heroGetStartedBtn">Get Started Now</button>
-                <a href="#video" class="btn btn-ghost">▶ Watch Demo Video</a>
+                <button class="btn btn-primary" id="heroGetStartedBtn">Get started</button>
+                <a href="#video" class="btn btn-ghost">▶ Watch demo</a>
             </div>
         </div>
         <a href="#stats" class="scroll-cue" aria-label="Scroll down"><span></span></a>
     </section>
 
-    <!-- ===== STATS ===== -->
+    <!-- ===== STATS SECTION (DARK GREEN) ===== -->
     <section class="stats" id="stats">
         <div class="container stats-grid">
             <div class="stat reveal">
@@ -75,7 +79,7 @@
         </div>
     </section>
 
-    <!-- ===== HOW IT WORKS ===== -->
+    <!-- ===== HOW IT WORKS SECTION (OFF-WHITE) ===== -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <p class="eyebrow reveal">Operational Design</p>
@@ -100,10 +104,10 @@
         </div>
     </section>
 
-    <!-- ===== CORE ARCHITECTURE ===== -->
+    <!-- ===== CORE ARCHITECTURE SECTION (CALM GREEN) ===== -->
     <section class="architecture" id="architecture">
         <div class="container">
-            <p class="eyebrow reveal">Hardware Specifications</p>
+            <p class="eyebrow reveal" style="color: var(--forest-canopy);">Hardware Specifications</p>
             <h2 class="reveal">A Robust Core Architecture</h2>
             <p class="section-sub reveal">Engineered cleanly from commercial-grade tracking units to resist outdoor field wear.</p>
             <div class="arch-grid">
@@ -138,28 +142,29 @@
                     </div>
                 </div>
                 <div class="arch-image-side reveal">
-                    <img src="hardware-setup.png" alt="Hardware Setup" onerror="this.src='https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600&q=80'">
+                    <img src="hardware-setup.png" alt="Hardware Setup Overview" onerror="this.src='https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600&q=80'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== STARTUP MISSION ===== -->
+    <!-- ===== AGRITECH MISSION SECTION (DARK GREEN) ===== -->
     <section class="mission" id="mission">
         <div class="container mission-split">
             <div class="mission-text reveal">
-                <p class="eyebrow" style="text-align: left; color: var(--bg-alt);">Foundational Philosophy</p>
+                <p class="eyebrow" style="text-align: left; color: var(--bg-sand);">Foundational Philosophy</p>
                 <h3>Agriculture is the backbone of entire economies — it deserves better tools</h3>
-                <p>Farmers face unpredictable weather, inefficient resource management, and plant disease without early data. Technology can close that gap.</p>
-                <p>Cultiv8 combines AI and IoT to turn raw sensor data into real-time insight, proactive alerts, and informed, sustainable farming practices.</p>
+                <p>Farmers continue to face unpredictable weather, inefficient resource management, and plant disease, often without the data to act early. We believe technology can close that gap.</p>
+                <p>Cultiv8 is an AgriTech startup combining Artificial Intelligence and the Internet of Things to transform how plants are monitored and cared for — turning raw sensor data into real-time insight, proactive alerts, and informed decisions.</p>
+                <p>The result: healthier crops, higher productivity, and more sustainable farming practices, delivered through hardware and software built to be affordable and reliable from day one.</p>
             </div>
             <div class="mission-img reveal">
-                <img src="https://images.unsplash.com/photo-1569880153113-76e33fc52d5f?auto=format&fit=crop&w=800&q=80" alt="Agriculture field">
+                <img src="https://images.unsplash.com/photo-1569880153113-76e33fc52d5f?auto=format&fit=crop&w=800&q=80" alt="Farmers working fields">
             </div>
         </div>
     </section>
 
-    <!-- ===== REAL-WORLD USES ===== -->
+    <!-- ===== REAL-WORLD USES SECTION (OFF-WHITE) ===== -->
     <section class="real-world-uses" id="real-world-uses">
         <div class="container">
             <p class="eyebrow reveal">Cultiv8 In The Field</p>
@@ -167,68 +172,69 @@
             <div class="uses-showcase-grid">
                 <div class="use-case-card reveal">
                     <div class="use-case-img">
-                        <img src="urban-hydroponics.png" alt="Urban vertical farming" onerror="this.src='https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80'">
+                        <img src="urban-hydroponics.png" alt="Urban Grow Systems" onerror="this.src='https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80'">
                     </div>
                     <div class="use-case-text">
                         <span class="use-case-badge">Controlled Environments</span>
                         <h3>Smart Urban Vertical Farming</h3>
-                        <p>Optimizing multi-tier grow spaces with modular hydration loops. Cultiv8 monitors nutrient distribution profiles directly inside urban centers.</p>
+                        <p>Optimizing indoor vertical room configurations using autonomous sensor networks. Cultiv8 monitors nutrient distribution and pH profiles within automated community garden systems.</p>
                     </div>
                 </div>
                 <div class="use-case-card reverse reveal">
                     <div class="use-case-img">
-                        <img src="field-irrigation.png" alt="Field irrigation" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=600&q=80'">
+                        <img src="field-irrigation.png" alt="Field hydration" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=600&q=80'">
                     </div>
                     <div class="use-case-text">
                         <span class="use-case-badge">Open Agriculture</span>
                         <h3>Broad Acre Crop Hydration</h3>
-                        <p>Deployed across Gujranwala, Punjab, Pakistan. Weather-isolated enclosures guard our hardware controllers connected to drip lines to handle intense fluxes.</p>
+                        <p>Deployed on-site across Gujranwala, Punjab, Pakistan. Our weather-insulated enclosures guard core ESP32 microcontrollers connected to flow networks.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ECOSYSTEM GALLERY ===== -->
+    <!-- ===== GALLERY SECTION (CALM GREEN) ===== -->
     <section class="gallery" id="gallery">
         <div class="container">
-            <p class="eyebrow reveal">Ecosystem Media Documentation</p>
+            <p class="eyebrow reveal" style="color: var(--forest-canopy);">Ecosystem Media Documentation</p>
             <h2 class="reveal">The operators behind the modern harvest</h2>
             <div class="gallery-grid">
                 <figure class="gallery-item tall reveal">
-                    <img src="https://images.unsplash.com/photo-1602867741746-6df80f40b3f6?auto=format&fit=crop&w=800&q=80" alt="Farmer checking crops">
+                    <img src="https://images.unsplash.com/photo-1602867741746-6df80f40b3f6?auto=format&fit=crop&w=800&q=80" alt="Farmer checking crop lines">
                     <figcaption>Field Verification Log — Punjab Farmlands</figcaption>
                 </figure>
                 <figure class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1522120679444-b967faef8c38?auto=format&fit=crop&w=600&q=80" alt="Green leaf close up">
+                    <img src="https://images.unsplash.com/photo-1522120679444-b967faef8c38?auto=format&fit=crop&w=600&q=80" alt="Plant foliage leaves close up">
                     <figcaption>Active Healthy Photosynthesis Stomata Profile</figcaption>
                 </figure>
                 <figure class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=600&q=80" alt="Home planting">
-                    <figcaption>Home Garden Botanical Nurturing Core Sequence</figcaption>
+                    <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=600&q=80" alt="People growing plant at home">
+                    <figcaption>Home Garden Botanical Nurturing Sequence</figcaption>
                 </figure>
                 <figure class="gallery-item wide reveal">
-                    <img src="mobile-mockup.png" alt="Mobile UI" onerror="this.src='https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=700&q=80'">
+                    <img src="mobile-mockup.png" alt="App user dashboard preview mockup" onerror="this.src='https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=700&q=80'">
                     <figcaption>Software UI Interface Smartphone App Feed</figcaption>
                 </figure>
             </div>
         </div>
     </section>
 
-    <!-- ===== VIDEO SECTION ===== -->
+    <!-- ===== FIXED DEMO VIDEO SECTION (OFF-WHITE) ===== -->
     <section class="video-section" id="video">
         <div class="container">
-            <p class="eyebrow reveal">Systems Demonstration Video</p>
-            <h2 class="reveal">From seed to automated harvest</h2>
+            <p class="eyebrow reveal">Watch</p>
+            <h2 class="reveal">From seed to smart harvest</h2>
             <div class="video-frame reveal">
-                <video controls playsinline preload="metadata" width="100%">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-farmer-hands-holding-a-greenhouse-seedling-41618-large.mp4" type="video/mp4">
+                <video controls playsinline poster="https://images.unsplash.com/photo-1522120679444-b967faef8c38?auto=format&fit=crop&w=1200&q=80">
+                    <source src="https://assets.mixkit.co/videos/46092/46092-360.mp4" type="video/mp4">
+                    Your browser doesn't support embedded video.
                 </video>
             </div>
         </div>
     </section>
 
-    <!-- ===== TESTIMONIAL ===== -->
+    <!-- ===== TESTIMONIAL DISPLAY (DARK GREEN) ===== -->
     <section class="testimonial" id="testimonials">
         <div class="container testimonial-inner reveal">
             <p class="quote">"I used to walk the entire perimeter grid every morning just to manually evaluate soil hydration paths. Now I parse an accurate live metric array before I even fire up my machinery."</p>
@@ -236,26 +242,26 @@
         </div>
     </section>
 
-    <!-- ===== MEET THE TEAM ===== -->
+    <!-- ===== MEET THE TEAM SECTION (CALM GREEN) ===== -->
     <section class="team-section" id="team">
         <div class="container">
-            <p class="eyebrow reveal">The Architects</p>
+            <p class="eyebrow reveal" style="color: var(--forest-canopy);">The Architects</p>
             <h2 class="reveal">Meet the visionaries</h2>
-            <p class="section-sub reveal">The cross-functional team building Cultiv8 from the ground up.</p>
+            <p class="section-sub">The cross-functional team building Cultiv8 from the ground up.</p>
             <div class="team-grid">
                 <div class="team-card reveal">
                     <div class="team-avatar">MH</div>
                     <h3>Maaz Hassan Waheed</h3>
                     <p class="team-role">Founder</p>
                     <p class="team-spec">Hardware · IoT Lead</p>
-                    <a href="https://www.linkedin.com/in/maaz-hassan" target="_blank" class="team-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/maaz-hassan-b7515a2b1?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="team-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
                 <div class="team-card reveal">
                     <div class="team-avatar">AS</div>
                     <h3>Asra Shaheen</h3>
                     <p class="team-role">Co-Founder</p>
                     <p class="team-spec">Software · Programming Lead</p>
-                    <a href="https://www.linkedin.com/in/asra-shaheen" target="_blank" class="team-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/asra-shaheen-a87692343?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="team-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
                 <div class="team-card reveal">
                     <div class="team-avatar">AL</div>
@@ -269,20 +275,20 @@
                     <h3>Aiza Nadeem</h3>
                     <p class="team-role">Software</p>
                     <p class="team-spec">Builder Engineer</p>
-                    <a href="https://www.linkedin.com/in/aiza-nadeem" target="_blank" class="team-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/aiza-nadeem-997857329?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="team-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
                 <div class="team-card reveal">
                     <div class="team-avatar">SZ</div>
                     <h3>Sana Zahra</h3>
                     <p class="team-role">Hardware</p>
                     <p class="team-spec">Systems Engineer</p>
-                    <a href="https://www.linkedin.com/in/sana-zahra" target="_blank" class="team-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/sana-zahra-6b2358328?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="team-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONTACT SECTION ===== -->
+    <!-- ===== CONTACT SECTION (OFF-WHITE) ===== -->
     <section class="contact" id="contact">
         <div class="container contact-grid">
             <div class="contact-info reveal">
@@ -291,28 +297,27 @@
                 <p>Whether you're a farmer curious about Aqua Guardian, an investor, or a fellow builder — we'd love to hear from you.</p>
                 
                 <div class="direct-channels-block">
-                    <p class="channel-row"><i class="fas fa-envelope"></i> <strong>Founder:</strong> <a href="mailto:47553@studends.riphah.edu.pk" target="_blank">47553@studends.riphah.edu.pk</a></p>
-                    <p class="channel-row"><i class="fas fa-envelope"></i> <strong>Co-founder:</strong> <a href="mailto:asrashaheen13@gmail.com" target="_blank">asrashaheen13@gmail.com</a></p>
+                    <p class="channel-row"><i class="fas fa-envelope"></i> <strong>Founder:</strong> <a href="mailto:47553@studends.riphah.edu.pk">47553@studends.riphah.edu.pk</a></p>
+                    <p class="channel-row"><i class="fas fa-envelope"></i> <strong>Co-founder:</strong> <a href="mailto:asrashaheen13@gmail.com">asrashaheen13@gmail.com</a></p>
                     <p class="channel-row"><i class="fas fa-map-marker-alt"></i> Pakistan — building for the world</p>
                 </div>
 
-                <!-- NEW: Dynamic Social Account Directory with Working Links -->
                 <div class="social-directory-wrapper">
                     <h4>Our Startup Network Profiles</h4>
                     <div class="social-links-list">
-                        <a href="https://www.linkedin.com/company/cultiv8-solutions/" target="_blank" rel="noopener" class="social-list-item">
+                        <a href="https://www.linkedin.com/company/cultiv8-solutions/" target="_blank" class="social-list-item">
                             <span class="soc-icon icon-li"><i class="fab fa-linkedin-in"></i></span>
                             <span class="soc-text"><strong>LinkedIn:</strong> cultiv8-solutions</span>
                         </a>
-                        <a href="https://www.instagram.com/cultiv8.solutions" target="_blank" rel="noopener" class="social-list-item">
+                        <a href="https://www.instagram.com/cultiv8.solutions" target="_blank" class="social-list-item">
                             <span class="soc-icon icon-ig"><i class="fab fa-instagram"></i></span>
                             <span class="soc-text"><strong>Instagram:</strong> @cultiv8.solutions</span>
                         </a>
-                        <a href="https://www.facebook.com/share/1EdKd6DAYe/" target="_blank" rel="noopener" class="social-list-item">
+                        <a href="https://www.facebook.com/share/1EdKd6DAYe/" target="_blank" class="social-list-item">
                             <span class="soc-icon icon-fb"><i class="fab fa-facebook-f"></i></span>
                             <span class="soc-text"><strong>Facebook:</strong> Cultiv8 Smart Systems</span>
                         </a>
-                        <a href="https://x.com/cultiv8solution" target="_blank" rel="noopener" class="social-list-item">
+                        <a href="https://x.com/cultiv8solution" target="_blank" class="social-list-item">
                             <span class="soc-icon icon-x"><i class="fab fa-x-twitter"></i></span>
                             <span class="soc-text"><strong>X Hardware:</strong> @cultiv8solution</span>
                         </a>
@@ -321,14 +326,14 @@
             </div>
 
             <form class="contact-form reveal" id="contactForm">
-                <label for="name">Operator Legal Name</label>
+                <label for="name">Operator Name</label>
                 <input type="text" id="name" name="name" required placeholder="Your Name">
 
-                <label for="email">Verified Mail Destination Endpoint Address</label>
-                <input type="email" id="email" name="email" required placeholder="you@domain.com">
+                <label for="email">Email Address</label>
+               <input type="email" id="email" name="email" required placeholder="you@domain.com">
 
-                <label for="message">Detailed Technical Requirements Message</label>
-                <textarea id="message" name="message" rows="4" required placeholder="Specify your context or system configuration parameters here..."></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Tell us about your field context..."></textarea>
 
                 <button type="submit" class="btn btn-primary btn-block">Dispatch Message Securely</button>
                 <p class="form-status" id="formStatus"></p>
@@ -343,7 +348,7 @@
         </div>
     </footer>
 
-    <!-- LOGIN MODAL WINDOW -->
+    <!-- LIGHTBOX OVERLAY WINDOW MODALS -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-card">
             <span class="close-modal-trigger" id="closeAuthModal">&times;</span>
@@ -365,7 +370,6 @@
         </div>
     </div>
 
-    <!-- CONFIGURATION WIZARD MODAL -->
     <div class="modal-overlay" id="wizardModal">
         <div class="modal-card wizard-card-layout">
             <h2>Ecosystem Pairing Setup Wizard</h2>
